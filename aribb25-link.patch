@@ -1,11 +1,22 @@
---- aribb25-0.2.6/Makefile.am.orig	2014-10-21 21:08:42.000000000 +0200
-+++ aribb25-0.2.6/Makefile.am	2015-02-15 21:34:12.561661026 +0100
+--- aribb25-0.2.7/Makefile.am.orig	2016-10-07 22:28:32.405795581 +0200
++++ aribb25-0.2.7/Makefile.am	2016-10-08 08:38:17.052044517 +0200
 @@ -6,7 +6,7 @@
          src/b_cas_card_error_code.h src/multi2_error_code.h src/td.c \
          src/ts_section_parser_error_code.h src/arib_std_b25.h src/b_cas_card.h \
          src/multi2.h src/ts_common_types.h src/ts_section_parser.h src/aribb25api.h
--libaribb25_la_LIBADD = $(AM_LIBS) $(pcsclite_CFLAGS)
-+libaribb25_la_LIBADD = $(AM_LIBS) $(pcsclite_LIBS)
+-libaribb25_la_LIBADD = $(AM_LIBS) $(pcsclite_CFLAGS) $(PCSC_LIBS)
++libaribb25_la_LIBADD = $(AM_LIBS) $(PC_LIBS)
  libaribb25_la_CFLAGS = $(AM_CFLAGS) -Wall -Werror -fvisibility=hidden $(pcsclite_CFLAGS)
  
  pkginclude_HEADERS = src/arib_std_b25_error_code.h src/b_cas_card_error_code.h \
+--- aribb25-0.2.7/configure.ac.orig	2016-02-18 17:58:55.000000000 +0100
++++ aribb25-0.2.7/configure.ac	2016-10-08 08:44:14.628707093 +0200
+@@ -73,7 +73,7 @@
+   AC_MSG_RESULT([no]))
+   LIBS="$gt_save_LIBS"
+   AC_SUBST(pcsclite_CFLAGS, ["-I$SDKROOT/System/Library/Frameworks/PCSC.framework/Headers"])
+-  AC_SUBST(PCSC_LIBS, ["-Wl,-framework -Wl,PCSC"])
++  AC_SUBST(PC_LIBS, ["-Wl,-framework -Wl,PCSC"])
+ ],[
+   PKG_CHECK_MODULES(pcsclite, "libpcsclite", [
+     AC_DEFINE(HAVE_PCSC, 1, "have libpcsclite")

@@ -5,12 +5,12 @@
 Summary:	ARIB B25 library
 Summary(pl.UTF-8):	Biblioteka ARIB B25
 Name:		aribb25
-Version:	0.2.6
+Version:	0.2.7
 Release:	1
-License:	unknown
+License:	ISC
 Group:		Libraries
 Source0:	http://download.videolan.org/pub/videolan/aribb25/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	f797a8f8a1bab4361d2111046aca58b6
+# Source0-md5:	a63e6c81210903c3d202082ddcf10176
 Patch0:		%{name}-link.patch
 URL:		http://www.marumo.ne.jp/
 BuildRequires:	autoconf >= 2.69
@@ -73,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 # obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libaribb25.la
 # packaged as %doc
-%{__rm} $RPM_BUILD_ROOT%{_docdir}/aribb25/README.txt
+%{__rm} $RPM_BUILD_ROOT%{_docdir}/aribb25/{LICENCE,README.md,README.jp.txt}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -83,7 +83,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.txt
+%doc LICENCE README.md
+%lang(ja) %doc README.jp.txt
 %attr(755,root,root) %{_libdir}/libaribb25.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libaribb25.so.0
 

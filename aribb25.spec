@@ -9,7 +9,7 @@ Version:	0.2.7
 Release:	1
 License:	ISC
 Group:		Libraries
-Source0:	http://download.videolan.org/pub/videolan/aribb25/%{version}/%{name}-%{version}.tar.gz
+Source0:	https://download.videolan.org/videolan/aribb25/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	a63e6c81210903c3d202082ddcf10176
 Patch0:		%{name}-link.patch
 URL:		http://www.marumo.ne.jp/

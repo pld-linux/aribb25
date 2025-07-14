@@ -53,7 +53,7 @@ Statyczna biblioteka ARIB B25.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__libtoolize}
